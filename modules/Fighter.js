@@ -1,3 +1,8 @@
 export default class Fighter {
-	constructor() {}
+	#health;
+	constructor(health) {
+		this.#health = health;
+	}
 }
+
+class Fighter1 extends Fighter {}
