@@ -11,22 +11,24 @@
 	<body>
 		<div id="mainContainer">
 			<form id="gameForm">
-			  <label for="player1">Player 1</label>
-			  <input type="text" id="p1Name" required>
-			  <label for="type">Warrior</label>
-			  <input type="radio" name="player1Character" value="Warrior">
-			  <label for="type">Assassin</label>
-			  <input type="radio" name="player1Character" value="Assassin"><br>
-		  
-			  <label for="player2">Player 2</label>
-			  <input type="text" id="p2Name" required>
-			  <label for="type">Warrior</label>
-			  <input type="radio" name="player2Character" value="Warrior">
-			  <label for="type">Assassin</label>
-			  <input type="radio" name="player2Character" value="Assassin"><br>
-			
-			  <button type="submit">Fight!</button>
-			</form>
+				<label for="player1">Player 1</label>
+				<input type="text" id="p1Name" required>
+				<label for="player1Character">Select character:</label>
+				<select id="player1Character" name="player1Character">
+				  <option value="Warrior">Warrior</option>
+				  <option value="Assassin">Assassin</option>
+				</select><br>
+			  
+				<label for="player2">Player 2</label>
+				<input type="text" id="p2Name" required>
+				<label for="player2Character">Select character:</label>
+				<select id="player2Character" name="player2Character">
+				  <option value="Warrior">Warrior</option>
+				  <option value="Assassin">Assassin</option>
+				</select><br>
+				
+				<button type="submit">Fight!</button>
+			  </form>
 		  </div>
 	</body>
 </html>
