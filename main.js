@@ -12,23 +12,24 @@ formEl.addEventListener("submit", (event) => {
   const characterOptPlayer2 = document.getElementById("player2Character").value;
   mainContainer.innerHTML = "";
   if (characterOptPlayer1 === "Warrior") {
-    displayWarrior(player1);
+    displayWarrior();
   } else if (characterOptPlayer1 === "Assassin") {
-    displayAssassin(player1);
+    displayAssassin();
   }
 
   if (characterOptPlayer2 === "Warrior") {
-    displayWarrior(player2);
+    displayWarrior();
   } else if (characterOptPlayer2 === "Assassin") {
-    displayAssassin(player2);
+    displayAssassin();
   }
   mainContainer.append(fighter1Div);
   mainContainer.append(fighter2Div);
   event.preventDefault();
 });
 
-function createAndAppendEl(type, content, container) {
+function createAndAppendEl(type, content, addId, container) {
   const element = document.createElement(type);
+  element.id = addId;
   container.append(element);
   if (type === "img") {
     element.src = content;

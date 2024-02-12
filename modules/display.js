@@ -8,7 +8,7 @@ async function displayWarrior() {
   fighter1Moves.classList.add("flex");
   fighter2Moves.classList.add("flex");
   new Warrior();
-  createAndAppendEl("h3", player1, "playername", fighter1Div);
+  createAndAppendEl("h3", "yo", "playername", fighter1Div);
   createAndAppendEl("p", Warrior.health, "warriorHP", fighter1Div);
   createAndAppendEl("img", "./img/", "warriorImg", fighter1Div);
   fighter1Div.append(fighter1Moves);
@@ -26,7 +26,7 @@ async function displayAssassin() {
   fighter1Moves.classList.add("flex");
   fighter2Moves.classList.add("flex");
   new Assassin();
-  createAndAppendEl("h3", player1, "playerName", fighter1Div);
+  createAndAppendEl("h3", "yi", "playerName", fighter1Div);
   createAndAppendEl("p", Assassin.health, "assassinHP", fighter1Div);
   createAndAppendEl("img", "./img/", "assasinImg", fighter1Div);
   fighter1Div.append(fighter1Moves);
