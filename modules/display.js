@@ -47,3 +47,5 @@ function createAndAppendEl(type, content, addId, container) {
   }
   return element;
 }
+
+export { displayAssassin, displayWarrior };
