@@ -9,12 +9,19 @@ formEl.addEventListener("submit", (event) => {
 
   const player1 = document.querySelector("#p1Name").value;
   const player2 = document.querySelector("#p2Name").value;
-  const characterOpt = document.querySelector("#characterOpt").options.value;
-  //! if(player1){}
-  if (characterOpt === "warrior") {
-    displayWarrior();
-  } else if (characterOpt === "assassin") {
-    displayAssassin();
+  const characterOptPlayer1 = document.querySelector("#player1Character").value; 
+  const characterOptPlayer2 = document.querySelector("#player2Character").value;
+
+  if (characterOptPlayer1 === "Warrior") {
+    displayWarrior(player1);
+  } else if (characterOptPlayer1 === "Assassin") {
+    displayAssassin(player1);
+  }
+
+  if (characterOptPlayer2 === "Warrior") {
+    displayWarrior(player2);
+  } else if (characterOptPlayer2 === "Assassin") {
+    displayAssassin(player2);
   }
   mainContainer.append(fighter1Div);
   mainContainer.append(fighter2Div);
