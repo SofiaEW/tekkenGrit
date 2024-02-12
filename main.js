@@ -1,5 +1,6 @@
 import Fighter from "./modules/Fighter.js";
 import { Warrior, Assassin } from "./modules/Characters.js";
+import { displayAssassin, displayWarrior } from "./modules/display.js";
 const mainContainer = document.querySelector("#mainContainer");
 
 const formEl = document.querySelector("#gameForm");
