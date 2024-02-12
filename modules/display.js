@@ -1,12 +1,9 @@
 import { Assassin, Warrior } from "./Characters.js";
 
-async function displayWarrior() {
+async function displayWarriorForP1() {
   const fighter1Div = document.createElement("div");
-  const fighter2Div = document.createElement("div");
   const fighter1Moves = document.createElement("div");
-  const fighter2Moves = document.createElement("div");
   fighter1Moves.classList.add("flex");
-  fighter2Moves.classList.add("flex");
   new Warrior();
   createAndAppendEl("h3", "yo", "playername", fighter1Div);
   createAndAppendEl("p", Warrior.health, "warriorHP", fighter1Div);
@@ -17,14 +14,25 @@ async function displayWarrior() {
   createAndAppendEl("button", "Special", "warriorSpec", fighter1Moves);
   createAndAppendEl("button", "Ultimate", "warriorUlt", fighter1Moves);
 }
-
-async function displayAssassin() {
-  const fighter1Div = document.createElement("div");
+async function displayWarriorForP2() {
   const fighter2Div = document.createElement("div");
-  const fighter1Moves = document.createElement("div");
   const fighter2Moves = document.createElement("div");
-  fighter1Moves.classList.add("flex");
   fighter2Moves.classList.add("flex");
+  new Warrior();
+  createAndAppendEl("h3", "yo", "playername", fighter2Div);
+  createAndAppendEl("p", Warrior.health, "warriorHP", fighter2Div);
+  createAndAppendEl("img", "./img/", "warriorImg", fighter2Div);
+  fighter2Div.append(fighter2Moves);
+  createAndAppendEl("button", "Knuckles", "knuckles", fighter2Moves);
+  createAndAppendEl("button", "Uppercut", "uppercut", fighter2Moves);
+  createAndAppendEl("button", "Special", "warriorSpec", fighter2Moves);
+  createAndAppendEl("button", "Ultimate", "warriorUlt", fighter2Moves);
+}
+
+async function displayAssassinForP1() {
+  const fighter1Div = document.createElement("div");
+  const fighter1Moves = document.createElement("div");
+  fighter1Moves.classList.add("flex");
   new Assassin();
   createAndAppendEl("h3", "yi", "playerName", fighter1Div);
   createAndAppendEl("p", Assassin.health, "assassinHP", fighter1Div);
@@ -35,8 +43,22 @@ async function displayAssassin() {
   createAndAppendEl("button", "Special", "assassinSpec", fighter1Moves);
   createAndAppendEl("button", "Ultimate", "assassinUlt", fighter1Moves);
 }
+async function displayAssassinForP2() {
+  const fighter2Div = document.createElement("div");
+  const fighter2Moves = document.createElement("div");
+  fighter2Moves.classList.add("flex");
+  new Assassin();
+  createAndAppendEl("h3", "yi", "playerName", fighter2Div);
+  createAndAppendEl("p", Assassin.health, "assassinHP", fighter2Div);
+  createAndAppendEl("img", "./img/", "assasinImg", fighter2Div);
+  fighter2Div.append(fighter2Moves);
+  createAndAppendEl("button", "Dagger", "daggerBtn", fighter2Moves);
+  createAndAppendEl("button", "Legsweep", "legsweepBtn", fighter2Moves);
+  createAndAppendEl("button", "Special", "assassinSpec", fighter2Moves);
+  createAndAppendEl("button", "Ultimate", "assassinUlt", fighter2Moves);
+}
 
-function createAndAppendEl(type, content, addId, container) {
+async function createAndAppendEl(type, content, addId, container) {
   const element = document.createElement(type);
   element.id = addId;
   container.append(element);
@@ -47,5 +69,11 @@ function createAndAppendEl(type, content, addId, container) {
   }
   return element;
 }
+console.log(createAndAppendEl);
 
-export { displayAssassin, displayWarrior };
+export {
+  displayAssassinForP1,
+  displayAssassinForP2,
+  displayWarriorForP1,
+  displayWarriorForP2,
+};
