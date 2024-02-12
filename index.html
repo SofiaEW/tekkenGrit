@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="#" type="image/x-icon" />
-		<link rel="stylesheet" href="./css/main.css" />
-		<script type="module" src="./main.js"></script>
-		<title>TekkenFighter</title>
-	</head>
-	<body>
-		<div id="mainContainer">
-			<form id="gameForm">
-				<label for="player1">Player 1</label>
-				<input type="text" id="p1Name" required>
-				<label for="player1Character">Select character:</label>
-				<select id="player1Character" name="player1Character">
-				  <option value="Warrior">Warrior</option>
-				  <option value="Assassin">Assassin</option>
-				</select><br>
-			  
-				<label for="player2">Player 2</label>
-				<input type="text" id="p2Name" required>
-				<label for="player2Character">Select character:</label>
-				<select id="player2Character" name="player2Character">
-				  <option value="Warrior">Warrior</option>
-				  <option value="Assassin">Assassin</option>
-				</select><br>
-				
-				<button type="submit">Fight!</button>
-			  </form>
-		  </div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="module" src="./main.js"></script>
+    <title>TekkenFighter</title>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <form id="gameForm">
+        <label for="player1">Player 1</label>
+        <input type="text" id="p1Name" required />
+        <label for="player1Character">Select character:</label>
+        <select id="player1Character" name="player1Character">
+          <option value="Warrior">Warrior</option>
+          <option value="Assassin">Assassin</option></select
+        ><br />
+        <hr />
+        <br />
+        <label for="player2">Player 2</label>
+        <input type="text" id="p2Name" required />
+        <label for="player2Character">Select character:</label>
+        <select id="player2Character" name="player2Character">
+          <option value="Warrior">Warrior</option>
+          <option value="Assassin">Assassin</option></select
+        ><br />
+        <hr />
+        <br />
+        <button type="submit">Fight!</button>
+      </form>
+    </div>
+  </body>
 </html>
