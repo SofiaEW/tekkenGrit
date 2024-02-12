@@ -1,6 +1,8 @@
 export default class Fighter {
   health;
-  constructor(health) {
+  name;
+  constructor(health, name) {
     this.health = health;
+    this.name = name;
   }
 }

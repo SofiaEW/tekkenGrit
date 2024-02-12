@@ -16,7 +16,10 @@ formEl.addEventListener("submit", (event) => {
   const characterOptPlayer1 = document.getElementById("player1Character").value;
   const characterOptPlayer2 = document.getElementById("player2Character").value;
   mainContainer.innerHTML = "";
+
   if (characterOptPlayer1 === "Warrior") {
+    const p1Warrior = new Warrior("", player1); //!check
+    console.log(p1Warrior);
     displayWarriorForP1();
   } else if (characterOptPlayer1 === "Assassin") {
     displayAssassinForP1();

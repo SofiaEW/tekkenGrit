@@ -7,9 +7,10 @@ async function displayWarriorForP1() {
   fighter1Div.classList.add("flexBox");
   const fighter1Moves = document.createElement("div");
   fighter1Moves.classList.add("flex");
-  new Warrior();
-  createAndAppendEl("h3", player1, "playername", fighter1Div);
-  createAndAppendEl("p", Warrior.health, "warriorHP", fighter1Div);
+  const p1Warrior = new Warrior(); //!check
+
+  createAndAppendEl("h3", p1Warrior.name, "playername", fighter1Div);
+  createAndAppendEl("p", p1Warrior.health, "warriorHP", fighter1Div);
   createAndAppendEl("img", "./img/", "warriorImg", fighter1Div);
   fighter1Div.append(fighter1Moves);
   createAndAppendEl("button", "Knuckles", "knuckles", fighter1Moves);
@@ -23,9 +24,9 @@ async function displayWarriorForP2() {
   fighter2Div.classList.add("flexBox");
   const fighter2Moves = document.createElement("div");
   fighter2Moves.classList.add("flex");
-  new Warrior();
+  const p2Warrior = new Warrior();
   createAndAppendEl("h3", "yo", "playername", fighter2Div);
-  createAndAppendEl("p", Warrior.health, "warriorHP", fighter2Div);
+  createAndAppendEl("p", p2Warrior.health, "warriorHP", fighter2Div);
   createAndAppendEl("img", "./img/", "warriorImg", fighter2Div);
   fighter2Div.append(fighter2Moves);
   createAndAppendEl("button", "Knuckles", "knuckles", fighter2Moves);
@@ -40,9 +41,9 @@ async function displayAssassinForP1() {
   fighter1Div.classList.add("flexBox");
   const fighter1Moves = document.createElement("div");
   fighter1Moves.classList.add("flex");
-  new Assassin();
+  const p1Assassin = new Assassin();
   createAndAppendEl("h3", "yi", "playerName", fighter1Div);
-  createAndAppendEl("p", Assassin.health, "assassinHP", fighter1Div);
+  createAndAppendEl("p", p1Assassin.health, "assassinHP", fighter1Div);
   createAndAppendEl("img", "./img/", "assasinImg", fighter1Div);
   fighter1Div.append(fighter1Moves);
   createAndAppendEl("button", "Dagger", "daggerBtn", fighter1Moves);
@@ -56,9 +57,9 @@ async function displayAssassinForP2() {
   fighter2Div.classList.add("flexBox");
   const fighter2Moves = document.createElement("div");
   fighter2Moves.classList.add("flex");
-  new Assassin();
+  const p2Assassin = new Assassin();
   createAndAppendEl("h3", "player2", "playerName", fighter2Div);
-  createAndAppendEl("p", Assassin.health, "assassinHP", fighter2Div);
+  createAndAppendEl("p", p2Assassin.health, "assassinHP", fighter2Div);
   createAndAppendEl("img", "./img/", "assasinImg", fighter2Div);
   fighter2Div.append(fighter2Moves);
   createAndAppendEl("button", "Dagger", "daggerBtn", fighter2Moves);

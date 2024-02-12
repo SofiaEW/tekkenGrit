@@ -7,8 +7,8 @@ class Warrior extends Fighter {
   specialPower = 35;
   ultimatePower = 50;
   ultCount = 0;
-  constructor(health) {
-    super(health);
+  constructor(health, name) {
+    super(health, name);
     this.health = 150;
   }
 
