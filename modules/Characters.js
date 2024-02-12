@@ -10,6 +10,7 @@ class Warrior extends Fighter {
   constructor(health, name) {
     super(health, name);
     this.health = 150;
+    this.name = name;
   }
 
   knucklesAttack() {

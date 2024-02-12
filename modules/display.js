@@ -7,8 +7,8 @@ async function displayWarriorForP1() {
   fighter1Div.classList.add("flexBox");
   const fighter1Moves = document.createElement("div");
   fighter1Moves.classList.add("flex");
-  const p1Warrior = new Warrior(); //!check
-
+  const p1Warrior = new Warrior("", player1); //!check
+  console.log(p1Warrior);
   createAndAppendEl("h3", p1Warrior.name, "playername", fighter1Div);
   createAndAppendEl("p", p1Warrior.health, "warriorHP", fighter1Div);
   createAndAppendEl("img", "./img/", "warriorImg", fighter1Div);
