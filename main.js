@@ -8,11 +8,9 @@ import {
 } from "./modules/display.js";
 const mainContainer = document.querySelector("#mainContainer");
 let player1, player2;
-const fighter1Div = document.createElement("div");
-const fighter2Div = document.createElement("div");
+
 const formEl = document.querySelector("#gameForm");
 formEl.addEventListener("submit", (event) => {
-  event.preventDefault();
   player1 = document.querySelector("#p1Name").value;
   player2 = document.querySelector("#p2Name").value;
   const characterOptPlayer1 = document.getElementById("player1Character").value;
@@ -29,8 +27,6 @@ formEl.addEventListener("submit", (event) => {
   } else if (characterOptPlayer2 === "Assassin") {
     displayAssassinForP2();
   }
-  mainContainer.append(fighter1Div);
-  mainContainer.append(fighter2Div);
   console.log(player1, characterOptPlayer1);
   event.preventDefault();
 });
