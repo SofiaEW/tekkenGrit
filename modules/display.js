@@ -1,4 +1,4 @@
-import { Assassin, Warrior } from "./Characters";
+import { Assassin, Warrior } from "./Characters.js";
 
 function displayWarrior() {
   const fighter1Div = document.createElement("div");
