@@ -2,56 +2,58 @@ import Fighter from "./Fighter.js";
 
 // ! Warrior
 class Warrior extends Fighter {
-  knuckles = 20;
-  uppercut = 25;
-  special = 35;
-  ultimate = 50;
+  knucklesPower = 20;
+  uppercutPower = 25;
+  specialPower = 35;
+  ultimatePower = 50;
   ultCount = 0;
   constructor(health) {
     super(health);
     this.health = 150;
   }
-  knuckles() {
-    Assassin.health -= this.knuckles;
+
+  knucklesAttack() {
+    Assassin.health -= this.knucklesPower;
     this.ultCount++;
   }
-  uppercut() {
-    Assassin.health -= this.uppercut;
+
+  uppercutAttack() {
+    Assassin.health -= this.uppercutPower;
     this.ultCount++;
   }
-  special() {
-    Assassin.health -= this.special;
+  specialAttack() {
+    Assassin.health -= this.specialPower;
     this.ultCount++;
   }
-  ultimate() {
-    Assassin.health -= this.ultimate;
+  ultimateAttack() {
+    Assassin.health -= this.ultimatePower;
   }
 }
 // ! Assassin
 class Assassin extends Fighter {
-  dagger = 20;
-  legSweep = 25;
-  special = 35;
-  ultimate = 50;
+  daggerPower = 20;
+  legSweepPower = 25;
+  specialPower = 35;
+  ultimatePower = 50;
   ultCount = 0;
   constructor(health) {
     super(health);
     this.health = 120;
   }
-  dagger() {
-    Warrior.health -= this.dagger;
+  daggerAttack() {
+    Warrior.health -= this.daggerPower;
     this.ultCount++;
   }
-  legSweep() {
-    Warrior.health -= this.legSweep;
+  legSweepAttack() {
+    Warrior.health -= this.legSweepPower;
     this.ultCount++;
   }
-  special() {
-    Warrior.health -= this.special;
+  specialAttack() {
+    Warrior.health -= this.specialPower;
     this.ultCount++;
   }
-  ultimate() {
-    Warrior.health -= this.ultimate;
+  ultimateAttack() {
+    Warrior.health -= this.ultimatePower;
   }
 }
 export { Warrior, Assassin };
