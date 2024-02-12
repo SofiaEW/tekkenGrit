@@ -2,8 +2,10 @@ import Fighter from "./modules/Fighter.js";
 import { Warrior, Assassin } from "./modules/Characters.js";
 const mainContainer = document.querySelector("#mainContainer");
 
-const formEl = document.querySelector("form");
+const formEl = document.querySelector("#gameForm");
 formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
   const player1 = document.querySelector("#p1Name").value;
   const player2 = document.querySelector("#p2Name").value;
   const characterOpt = document.querySelector("#characterOpt").options.value;
