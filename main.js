@@ -2,15 +2,15 @@ import Fighter from "./modules/Fighter.js";
 import { Warrior, Assassin } from "./modules/Characters.js";
 import { displayAssassin, displayWarrior } from "./modules/display.js";
 const mainContainer = document.querySelector("#mainContainer");
-const player1 = document.querySelector("#p1Name").value;
-const player2 = document.querySelector("#p2Name").value;
+let player1, player2;
 const formEl = document.querySelector("#gameForm");
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const characterOptPlayer1 = document.querySelector("#player1Character").value;
-  const characterOptPlayer2 = document.querySelector("#player2Character").value;
-
+  player1 = document.querySelector("#p1Name").value;
+  player2 = document.querySelector("#p2Name").value;
+  const characterOptPlayer1 = document.getElementById("player1Character").value;
+  const characterOptPlayer2 = document.getElementById("player2Character").value;
+  mainContainer.innerHTML = "";
   if (characterOptPlayer1 === "Warrior") {
     displayWarrior(player1);
   } else if (characterOptPlayer1 === "Assassin") {
