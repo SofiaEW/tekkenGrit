@@ -42,3 +42,5 @@ formEl.addEventListener("submit", (event) => {
 
   nextTurnP1();
 });
+
+// if(p1.health ===0){p1.lost(nameP1)}else if(p2.health===0){p2.lost(nameP2)}
