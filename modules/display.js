@@ -34,8 +34,6 @@ function displayPlayerOne(p1) {
     createAndAppendEl("button", "Ultimate", "player1Ult", fighterMoves);
     mainContainer.append(fighterDiv);
   } else console.log("ayo fel");
-  hideUlt(p1);
-  console.log(hideUlt(p1));
 }
 
 function displayPlayerTwo(p2) {
@@ -69,18 +67,8 @@ function displayPlayerTwo(p2) {
     mainContainer.append(fighterDiv);
   } else console.log("ayo fel");
   console.log(selectP1, selectP2);
-  hideUlt(p2);
 }
-function hideUlt(player) {
-  if (player === p1) {
-    const hideUltP1 = document.getElementById("player1Ult");
-    hideUltP1.classList.add("hide");
-  } else if (player === p2) {
-    const hideUltP2 = document.getElementById("player2Ult");
-    hideUltP2.classList.add("hide");
-  }
-}
-// console.log(hideUlt());
+
 // async function displayWarriorForP1(player1) {
 //   const fighter1Div = document.createElement("div");
 //   fighter1Div.classList.add("flexBox");

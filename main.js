@@ -70,18 +70,15 @@ formEl.addEventListener("submit", (event) => {
   }
   document.getElementById("player1name").innerText = nameP1;
   document.getElementById("player2name").innerText = nameP2;
+  document.getElementById("player1Ult").classList.add("hide");
+  document.getElementById("player2Ult").classList.add("hide");
 
   console.log(nameP1, nameP2);
 
   console.log(p1, p2);
   console.log(selectP1, selectP2);
-  // hideUlt(p1);
-  // hideUlt(p2);
-
   nextTurnP1();
 });
-// const hideUlt = document.getElementById("warriorUlt");
-// hideUlt.classList.add("hide");
 
 // // samma för p2
 
