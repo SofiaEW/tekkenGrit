@@ -5,10 +5,12 @@ import {
 	displayAssassinForP2,
 	displayWarriorForP1,
 	displayWarriorForP2,
+	displayP1win,
+	displayP2win,
 } from "./modules/display.js";
 
 const mainContainer = document.querySelector("#mainContainer");
-let player1, player2;
+let player1, player2, warrior1, warrior2;
 
 const formEl = document.querySelector("#gameForm");
 formEl.addEventListener("submit", (event) => {
@@ -48,3 +50,13 @@ function nextTurnP2() {
 	fighter1.classList.add("hide");
 	fighter2.classList.remove("hide");
 }
+
+const warrior1HP = document.getElementById("warrior1HP");
+const warrior2HP = document.getElementById("warrior2HP");
+const assassin1HP = document.getElementById("assassin1HP");
+const assassin2HP = document.getElementById("assassin2HP");
+
+if (warrior1HP.innerText == 0 || assassin1HP.innerText == 0) {
+	displayP2win();
+}
+// console.log(warrior1.health);

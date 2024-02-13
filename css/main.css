@@ -53,3 +53,6 @@ select {
 .hide {
 	display: none;
 }
+#KO {
+	background-color: antiquewhite;
+}
