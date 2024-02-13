@@ -5,6 +5,8 @@ import {
 	displayAssassinForP2,
 	displayWarriorForP1,
 	displayWarriorForP2,
+	nextTurnP1,
+	nextTurnP2,
 	displayP1win,
 	displayP2win,
 } from "./modules/display.js";
@@ -20,9 +22,11 @@ formEl.addEventListener("submit", (event) => {
 	const characterOptPlayer1 = document.getElementById("player1Character").value;
 	const characterOptPlayer2 = document.getElementById("player2Character").value;
 	mainContainer.innerHTML = "";
+
 	if (characterOptPlayer1 === "Warrior") {
 		displayWarriorForP1(player1);
 		document.getElementById("warriorUlt1").classList.add("hide");
+		console.log(warrior1);
 	} else if (characterOptPlayer1 === "Assassin") {
 		displayAssassinForP1(player1);
 
@@ -38,25 +42,31 @@ formEl.addEventListener("submit", (event) => {
 	}
 	nextTurnP1();
 });
-function nextTurnP1() {
-	const fighter1 = document.querySelector(".fighter1Moves");
-	const fighter2 = document.querySelector(".fighter2Moves");
-	fighter1.classList.remove("hide");
-	fighter2.classList.add("hide");
-}
-function nextTurnP2() {
-	const fighter1 = document.querySelector(".fighter1Moves");
-	const fighter2 = document.querySelector(".fighter2Moves");
-	fighter1.classList.add("hide");
-	fighter2.classList.remove("hide");
-}
-
-const warrior1HP = document.getElementById("warrior1HP");
-const warrior2HP = document.getElementById("warrior2HP");
-const assassin1HP = document.getElementById("assassin1HP");
-const assassin2HP = document.getElementById("assassin2HP");
-
-if (warrior1HP.innerText == 0 || assassin1HP.innerText == 0) {
-	displayP2win();
-}
+// displayP1win();
+// const warrior1HP = document.getElementById("warrior1HP");
+// const warrior2HP = document.getElementById("warrior2HP");
+// const assassin1HP = document.getElementById("assassin1HP");
+// const assassin2HP = document.getElementById("assassin2HP");
+// if (warrior1HP.innerText == "0" || assassin1HP.innerText == "0") {
+// 	displayP2win();
+// } else {
+// 	console.log("hej");
+// }
 // console.log(warrior1.health);
+
+//? warrior1 inte tillgänglig i main.js,
+//? tillgång till classen
+
+// let p1, p2;
+
+// // inpur från form
+// const selectP1 = query.value
+
+// if(selectP1 === 'warrior') p1 = new Warrior(name);
+// else p1 = new Assassin(name);
+
+// // samma för p2
+
+// displayPlayerOne(p1)
+// if(p1.type === 'warrior')
+// p1.daggerAttack(p2)

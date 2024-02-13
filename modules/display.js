@@ -73,19 +73,25 @@ async function displayAssassinForP2(player2) {
 	createAndAppendEl("button", "Ultimate", "assassinUlt2", fighter2Moves);
 	mainContainer.append(fighter2Div);
 }
-async function displayP1win() {
+function nextTurnP1() {
+	const fighter1 = document.querySelector(".fighter1Moves");
+	const fighter2 = document.querySelector(".fighter2Moves");
+	fighter1.classList.remove("hide");
+	fighter2.classList.add("hide");
+}
+function nextTurnP2() {
+	const fighter1 = document.querySelector(".fighter1Moves");
+	const fighter2 = document.querySelector(".fighter2Moves");
+	fighter1.classList.add("hide");
+	fighter2.classList.remove("hide");
+}
+
+async function ko() {
 	mainContainer.innerHTML = "";
 	const ko = document.getElementById("KO");
 	const winner = document.getElementById("winner");
 	ko.classList.remove("hide");
 	winner.innerText = player1;
-}
-async function displayP2win() {
-	mainContainer.innerHTML = "";
-	const ko = document.getElementById("KO");
-	const winner = document.getElementById("winner");
-	ko.classList.remove("hide");
-	winner.innerText = player2;
 }
 async function createAndAppendEl(type, content, addId, container) {
 	const element = document.createElement(type);
@@ -111,6 +117,7 @@ export {
 	displayAssassinForP2,
 	displayWarriorForP1,
 	displayWarriorForP2,
-	displayP1win,
-	displayP2win,
+	nextTurnP1,
+	nextTurnP2,
+	ko,
 };
