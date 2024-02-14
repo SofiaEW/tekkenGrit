@@ -2,7 +2,7 @@ import { Warrior, Assassin } from "./modules/Characters.js";
 import { displayPlayerOne, displayPlayerTwo } from "./modules/display.js";
 
 const mainContainer = document.querySelector("#mainContainer");
-let p1, p2, nameP1;
+let p1, p2;
 let formSubmitted = false;
 const formEl = document.querySelector("#gameForm");
 const player1Div = document.createElement("div");
@@ -36,14 +36,14 @@ formEl.addEventListener("submit", (event) => {
   }
 
   if (selectP1 === "Warrior") {
-    warriorAttacks(p1, p2, player2HP);
+    warriorAttacks(p1, p2, "player2HP");
   } else if (selectP1 === "Assassin") {
-    assassinAttacks(p1, p2, player2HP);
+    assassinAttacks(p1, p2, "player2HP");
   }
   if (selectP2 === "Warrior") {
-    warriorAttacks(p2, p1, player1HP);
+    warriorAttacks(p2, p1, "player1HP");
   } else if (selectP2 === "Assassin") {
-    assassinAttacks(p2, p1, player1HP);
+    assassinAttacks(p2, p1, "player1HP");
   }
   console.log(player1HP, player2HP);
   document.getElementById("player1name").innerText = nameP1;
@@ -71,13 +71,13 @@ function winner() {
   }, 50);
 }
 
-function warriorAttacks(attacker, reciever, HP) {
+function warriorAttacks(attacker, reciever, HPid) {
   setTimeout(() => {
     const knucklesBtn = document.getElementById("knucklesBtn");
     const uppercutBtn = document.getElementById("uppercutBtn");
     const specialBtn = document.getElementById("warriorSpecBtn");
     const ultimateBtn = document.getElementById("player1Ult");
-    const updateHP = HP;
+    const updateHP = document.getElementById(HPid);
     knucklesBtn.addEventListener("click", (event) => {
       attacker.knucklesAttack(reciever);
       updateHP.innerText = reciever.health;
@@ -107,14 +107,13 @@ function warriorAttacks(attacker, reciever, HP) {
     });
   }, 300);
 }
-function assassinAttacks(attacker, reciever, HP) {
+function assassinAttacks(attacker, reciever, HPid) {
   setTimeout(() => {
     const daggerBtn = document.getElementById("daggerBtn");
     const legsweepBtn = document.getElementById("legsweepBtn");
     const specialBtn = document.getElementById("assassinSpec");
     const ultimateBtn = document.getElementById("player1Ult");
-
-    const updateHP = HP;
+    const updateHP = document.getElementById(HPid);
     daggerBtn.addEventListener("click", (event) => {
       attacker.daggerAttack(reciever);
       updateHP.innerText = reciever.health;
