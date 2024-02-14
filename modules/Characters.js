@@ -15,20 +15,13 @@ class Warrior extends Fighter {
 
   knucklesAttack(opponent) {
     opponent.health -= this.knucklesPower;
+
     this.ultCount++;
-    return opponent.health;
   }
 
   uppercutAttack(opponent) {
     opponent.health -= this.uppercutPower;
     this.ultCount++;
-  }
-  specialAttack(opponent) {
-    opponent.health -= this.specialPower;
-    this.ultCount++;
-  }
-  ultimateAttack(opponent) {
-    opponent.health -= this.ultimatePower;
   }
 }
 // ! Assassin
@@ -50,13 +43,6 @@ class Assassin extends Fighter {
   legSweepAttack(opponent) {
     opponent.health -= this.legSweepPower;
     this.ultCount++;
-  }
-  specialAttack(opponent) {
-    opponent.health -= this.specialPower;
-    this.ultCount++;
-  }
-  ultimateAttack(opponent) {
-    opponent.health -= this.ultimatePower;
   }
 }
 export { Warrior, Assassin };

@@ -13,4 +13,11 @@ export default class Fighter {
     ko.classList.remove("hide");
     winner.innerText = player;
   }
+  specialAttack(opponent) {
+    opponent.health -= this.specialPower;
+    this.ultCount++;
+  }
+  ultimateAttack(opponent) {
+    opponent.health -= this.ultimatePower;
+  }
 }

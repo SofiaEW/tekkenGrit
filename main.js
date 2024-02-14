@@ -4,6 +4,7 @@ import {
   displayPlayerTwo,
   nextTurnP1,
   nextTurnP2,
+  // warriorAttacks,
 } from "./modules/display.js";
 
 const mainContainer = document.querySelector("#mainContainer");
@@ -36,25 +37,81 @@ formEl.addEventListener("submit", (event) => {
   }
   console.log(p1, p2);
   if (selectP1 === "Warrior") {
-    warriorAttacks();
+    warriorAttacks(p1, p2, player2HP);
+  } else if (selectP1 === "Assassin") {
+    assassinAttacks(p1, p2, player2HP);
+  }
+  if (selectP2 === "Warrior") {
+    warriorAttacks(p2, p1, player1HP);
+  } else if (selectP2 === "Assassin") {
+    assassinAttacks(p2, p1, player1HP);
   }
   document.getElementById("player1name").innerText = nameP1;
   document.getElementById("player2name").innerText = nameP2;
   document.getElementById("player1Ult").classList.add("hide");
   document.getElementById("player2Ult").classList.add("hide");
 
-  nextTurnP1();
+  // nextTurnP1();
 });
-function warriorAttacks() {
-  const knuckles1Btn = document.getElementById("knuckles1Btn");
+function warriorAttacks(attacker, reciever, HP) {
+  setTimeout(() => {
+    const knucklesBtn = document.getElementById("knucklesBtn");
+    const uppercutBtn = document.getElementById("uppercutBtn");
+    const specialBtn = document.getElementById("warriorSpecBtn");
+    const ultimateBtn = document.getElementById("player1Ult");
 
-  knuckles1Btn.addEventListener("click", (event) => {
-    p1.knucklesAttack(p2);
-    console.log(p1.knucklesAttack(p2));
-    console.log(event);
-    console.log(p1.ultCount);
-    event.preventDefault();
-  });
+    const updateHP = HP;
+    knucklesBtn.addEventListener("click", (event) => {
+      attacker.knucklesAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    uppercutBtn.addEventListener("click", (event) => {
+      attacker.uppercutAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    specialBtn.addEventListener("click", (event) => {
+      attacker.specialAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    ultimateBtn.addEventListener("click", (event) => {
+      attacker.ultimateAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+  }, 300);
+}
+function assassinAttacks(attacker, reciever, HP) {
+  setTimeout(() => {
+    const daggerBtn = document.getElementById("daggerBtn");
+    const legsweepBtn = document.getElementById("legsweepBtn");
+    const specialBtn = document.getElementById("assassinSpec");
+    const ultimateBtn = document.getElementById("player1Ult");
+
+    const updateHP = HP;
+    daggerBtn.addEventListener("click", (event) => {
+      attacker.daggerAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    legsweepBtn.addEventListener("click", (event) => {
+      attacker.legSweepAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    specialBtn.addEventListener("click", (event) => {
+      attacker.specialAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+    ultimateBtn.addEventListener("click", (event) => {
+      attacker.ultimateAttack(reciever);
+      updateHP.innerText = reciever.health;
+      event.preventDefault();
+    });
+  }, 300);
 }
 // if (event) {
 //   knuckles1Btn.addEventListener("click", (event) => {
