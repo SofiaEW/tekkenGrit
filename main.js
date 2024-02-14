@@ -1,24 +1,24 @@
 import { Warrior, Assassin } from "./modules/Characters.js";
-import {
-  displayPlayerOne,
-  displayPlayerTwo,
-  nextTurnP1,
-  nextTurnP2,
-} from "./modules/display.js";
+import { displayPlayerOne, displayPlayerTwo } from "./modules/display.js";
 
 const mainContainer = document.querySelector("#mainContainer");
 let p1, p2, nameP1;
 let formSubmitted = false;
 const formEl = document.querySelector("#gameForm");
+const player1Div = document.createElement("div");
+const player2Div = document.createElement("div");
+player1Div.classList.add("player1Div");
+player2Div.classList.add("player2Div");
+
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
-
   const nameP1 = document.querySelector("#p1Name").value;
   const nameP2 = document.querySelector("#p2Name").value;
   const selectP1 = document.getElementById("player1Character").value;
   const selectP2 = document.getElementById("player2Character").value;
+
   mainContainer.innerHTML = "";
-  console.log(selectP1, selectP2);
+  mainContainer.append(player1Div, player2Div);
 
   if (selectP1 === "Warrior") {
     p1 = new Warrior(nameP1);
@@ -34,7 +34,7 @@ formEl.addEventListener("submit", (event) => {
     p2 = new Assassin(nameP2);
     displayPlayerTwo(p2);
   }
-  console.log(p1, p2);
+
   if (selectP1 === "Warrior") {
     warriorAttacks(p1, p2, player2HP);
   } else if (selectP1 === "Assassin") {
@@ -45,34 +45,31 @@ formEl.addEventListener("submit", (event) => {
   } else if (selectP2 === "Assassin") {
     assassinAttacks(p2, p1, player1HP);
   }
+  console.log(player1HP, player2HP);
   document.getElementById("player1name").innerText = nameP1;
   document.getElementById("player2name").innerText = nameP2;
 
   document.getElementById("player1Ult").classList.add("hide");
   document.getElementById("player2Ult").classList.add("hide");
 
-  nextTurnP1();
   formSubmitted = true;
 });
 function winner() {
   setTimeout(() => {
-    console.log(formSubmitted);
-
     const player1Health = document.getElementById("player1HP").innerText;
     const player2Health = document.getElementById("player2HP").innerText;
     const nameP1 = document.querySelector("#player1name").innerText;
     const nameP2 = document.querySelector("#player2name").innerText;
-    console.log(player2Health);
+
     if (formSubmitted === true) {
       if (player2Health <= 0) {
         p1.won(nameP1);
       } else if (player1Health <= 0) {
         p2.won(nameP2);
-      } else console.log("xD");
+      } else console.log("not yet dead");
     }
   }, 50);
 }
-console.log(formSubmitted);
 
 function warriorAttacks(attacker, reciever, HP) {
   setTimeout(() => {
@@ -80,12 +77,12 @@ function warriorAttacks(attacker, reciever, HP) {
     const uppercutBtn = document.getElementById("uppercutBtn");
     const specialBtn = document.getElementById("warriorSpecBtn");
     const ultimateBtn = document.getElementById("player1Ult");
-
     const updateHP = HP;
     knucklesBtn.addEventListener("click", (event) => {
       attacker.knucklesAttack(reciever);
       updateHP.innerText = reciever.health;
-      console.log(updateHP.innerText);
+      console.log(updateHP);
+
       winner();
       event.preventDefault();
     });
@@ -93,14 +90,12 @@ function warriorAttacks(attacker, reciever, HP) {
       attacker.uppercutAttack(reciever);
       updateHP.innerText = reciever.health;
       winner();
-
       event.preventDefault();
     });
     specialBtn.addEventListener("click", (event) => {
       attacker.specialAttack(reciever);
       updateHP.innerText = reciever.health;
       winner();
-
       event.preventDefault();
     });
     ultimateBtn.addEventListener("click", (event) => {
@@ -110,9 +105,6 @@ function warriorAttacks(attacker, reciever, HP) {
 
       event.preventDefault();
     });
-    // if (updateHP.innerText === 0) {
-    //   attacker.won(attacker);
-    // }
   }, 300);
 }
 function assassinAttacks(attacker, reciever, HP) {
@@ -127,7 +119,6 @@ function assassinAttacks(attacker, reciever, HP) {
       attacker.daggerAttack(reciever);
       updateHP.innerText = reciever.health;
       winner();
-
       event.preventDefault();
     });
     legsweepBtn.addEventListener("click", (event) => {
@@ -153,23 +144,15 @@ function assassinAttacks(attacker, reciever, HP) {
     });
   }, 300);
 }
-// if (event) {
-//   knuckles1Btn.addEventListener("click", (event) => {
-//     p1.knucklesAttack(p2);
-//     console.log(event);
-//     event.preventDefault();
-//   });
+// function nextTurn() {
+//   const player1Moves = document.querySelector(".player1Moves");
+//   const player2Moves = document.querySelector(".player2Moves");
+//   const hide = document.querySelector(".hide");
+//   if (player2Div.contains(player2Moves) && player2Moves.contains(hide)) {
+//     player2Moves.classList.add("hide");
+//     player1Moves.classList.remove("hide");
+//   } else if (player1Div.contains(player1Moves) && player1Moves.contains(hide)) {
+//     player1Moves.classList.add("hide");
+//     player2Moves.classList.remove("hide");
+//   } else console.log("hello xd");
 // }
-const knuckles2Btn = document.getElementById("knuckles2Btn");
-const uppercut1Btn = document.getElementById("uppercut1Btn");
-const uppercut2Btn = document.getElementById("uppercut2Btn");
-const warrior1SpecBtn = document.getElementById("warrior1Spec");
-const warrior2SpecBtn = document.getElementById("warrior2Spec");
-const dagger1Btn = document.getElementById("dagger1Btn");
-const dagger2Btn = document.getElementById("dagger2Btn");
-const legsweep1Btn = document.getElementById("legsweep1Btn");
-const legsweep2Btn = document.getElementById("legsweep2Btn");
-const assassin1Spec = document.getElementById("assassin1Spec");
-const assassin2Spec = document.getElementById("assassin2Spec");
-
-// if(p1.health ===0){p1.lost(nameP1)}else if(p2.health===0){p2.lost(nameP2)}
