@@ -16,6 +16,7 @@ class Warrior extends Fighter {
   knucklesAttack(opponent) {
     opponent.health -= this.knucklesPower;
     this.ultCount++;
+    return opponent.health;
   }
 
   uppercutAttack(opponent) {
