@@ -6,12 +6,13 @@ export default class Fighter {
     this.name = name;
   }
 
-  lost(player) {
-    mainContainer.innerHTML = "";
+  won(player) {
+    mainContainer.style.display = "none";
     const ko = document.getElementById("KO");
     const winner = document.getElementById("winner");
     ko.classList.remove("hide");
     winner.innerText = player;
+    // return;
   }
   specialAttack(opponent) {
     opponent.health -= this.specialPower;

@@ -63,6 +63,7 @@ function displayPlayerTwo(p2) {
     createAndAppendEl("button", "Ultimate", "player2Ult", fighterMoves);
     mainContainer.append(fighterDiv);
   } else console.log("ayo fel");
+
   console.log(selectP1, selectP2);
 }
 
@@ -79,18 +80,6 @@ function nextTurnP2() {
   fighter2.classList.remove("hide");
 }
 
-function warriorAttacks(attacker, reciever) {
-  const knucklesBtn = document.getElementById("knucklesBtn");
-
-  knucklesBtn.addEventListener("click", (event) => {
-    `${attacker}`.knucklesAttack(`${reciever}`);
-    console.log(p1.knucklesAttack(p2));
-    console.log(event);
-    console.log(p2.health);
-    console.log(p1.ultCount);
-    event.preventDefault();
-  });
-}
 async function createAndAppendEl(type, content, addId, container) {
   const element = document.createElement(type);
   element.id = addId;
@@ -109,10 +98,4 @@ async function createAndAppendEl(type, content, addId, container) {
   return element;
 }
 
-export {
-  displayPlayerOne,
-  displayPlayerTwo,
-  nextTurnP1,
-  nextTurnP2,
-  warriorAttacks,
-};
+export { displayPlayerOne, displayPlayerTwo, nextTurnP1, nextTurnP2 };

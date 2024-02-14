@@ -4,12 +4,11 @@ import {
   displayPlayerTwo,
   nextTurnP1,
   nextTurnP2,
-  // warriorAttacks,
 } from "./modules/display.js";
 
 const mainContainer = document.querySelector("#mainContainer");
-let p1, p2;
-
+let p1, p2, nameP1;
+let formSubmitted = false;
 const formEl = document.querySelector("#gameForm");
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -48,11 +47,33 @@ formEl.addEventListener("submit", (event) => {
   }
   document.getElementById("player1name").innerText = nameP1;
   document.getElementById("player2name").innerText = nameP2;
+
   document.getElementById("player1Ult").classList.add("hide");
   document.getElementById("player2Ult").classList.add("hide");
 
-  // nextTurnP1();
+  nextTurnP1();
+  formSubmitted = true;
 });
+function winner() {
+  setTimeout(() => {
+    console.log(formSubmitted);
+
+    const player1Health = document.getElementById("player1HP").innerText;
+    const player2Health = document.getElementById("player2HP").innerText;
+    const nameP1 = document.querySelector("#player1name").innerText;
+    const nameP2 = document.querySelector("#player2name").innerText;
+    console.log(player2Health);
+    if (formSubmitted === true) {
+      if (player2Health <= 0) {
+        p1.won(nameP1);
+      } else if (player1Health <= 0) {
+        p2.won(nameP2);
+      } else console.log("xD");
+    }
+  }, 50);
+}
+console.log(formSubmitted);
+
 function warriorAttacks(attacker, reciever, HP) {
   setTimeout(() => {
     const knucklesBtn = document.getElementById("knucklesBtn");
@@ -64,23 +85,34 @@ function warriorAttacks(attacker, reciever, HP) {
     knucklesBtn.addEventListener("click", (event) => {
       attacker.knucklesAttack(reciever);
       updateHP.innerText = reciever.health;
+      console.log(updateHP.innerText);
+      winner();
       event.preventDefault();
     });
     uppercutBtn.addEventListener("click", (event) => {
       attacker.uppercutAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
     specialBtn.addEventListener("click", (event) => {
       attacker.specialAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
     ultimateBtn.addEventListener("click", (event) => {
       attacker.ultimateAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
+    // if (updateHP.innerText === 0) {
+    //   attacker.won(attacker);
+    // }
   }, 300);
 }
 function assassinAttacks(attacker, reciever, HP) {
@@ -94,21 +126,29 @@ function assassinAttacks(attacker, reciever, HP) {
     daggerBtn.addEventListener("click", (event) => {
       attacker.daggerAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
     legsweepBtn.addEventListener("click", (event) => {
       attacker.legSweepAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
     specialBtn.addEventListener("click", (event) => {
       attacker.specialAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
     ultimateBtn.addEventListener("click", (event) => {
       attacker.ultimateAttack(reciever);
       updateHP.innerText = reciever.health;
+      winner();
+
       event.preventDefault();
     });
   }, 300);
